@@ -32,7 +32,7 @@ let months = [
 let month = months[now.getMonth()];
 
 let h3 = document.querySelector("h3");
-h3.innerHTML = `${day}, ${date}. ${month} , ${year}. Kell ${hour}:${minute}`;
+h3.innerHTML = `${day}, ${date}. ${month}, ${year}. Kell ${hour}:${minute}`;
 
 let h5 = document.querySelector("#card-title");
 h5.innerHTML = `${day}, ${date}. ${month}`;
