@@ -60,6 +60,12 @@ function showTemperature(response) {
   let message = `Hetkel on ${temperature} ℃`;
   let h2 = document.querySelector("h2");
   h2.innerHTML = message;
+  let humidityElement = document.querySelector("#humidity");
+  let windElement = document.querySelector("#wind");
+
+  humidityElement.innerHTML = response.data.main.humidity;
+  windElement.innerHTML = Math.round(response.data.wind.speed);
+  city.innerHTML = response.data.name;
 }
 
 function showWeather(response) {
