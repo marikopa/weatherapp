@@ -9,12 +9,16 @@ let days = [
   "Laupäev",
 ];
 let day = days[now.getDay()];
-
 let date = now.getDate();
 let year = now.getFullYear();
 let hour = now.getHours();
+if (hour < 10) {
+  hour = `0${hour}`;
+}
 let minute = now.getMinutes();
-
+if (minute < 10) {
+  minute = `0${minute}`;
+}
 let months = [
   "Jaanuar",
   "Veebruar",
@@ -61,13 +65,13 @@ function showTemperature(response) {
 function showWeather(response) {
   let h1 = document.querySelector("h1");
   let temperature = Math.round(response.data.main.temp);
-  h1.innerHTML = `${response.data.name} ${temperature}° `;
+  h1.innerHTML = `${response.data.name} `;
   let iconElement = document.querySelector("#icon");
   iconElement.setAttribute(
     "src",
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
-  axios.get(apiUrl).then(showWeather);
+  axios.get(apiUrl).then(showTemperature);
 }
 
 function retrievePosition(position) {
