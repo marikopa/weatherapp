@@ -25,9 +25,11 @@ h1 {
   color: #230341;
   font-family: "Indie Flower", cursive;
   padding: 10px;
+  text-transform: capitalize;
 }
 .city {
   font-family: "Indie Flower", cursive;
+  text-transform: capitalize;
 }
 h2 {
   color: #230341;

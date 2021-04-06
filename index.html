@@ -24,11 +24,10 @@
       <div class="weather-app">
         <button>Current location</button>
         <br />
-
-        <div class="row">
-          <div class="col">
-            <div class="input-group mb-3 city">
-              <form id="search-form">
+        <form id="search-form">
+          <div class="row">
+            <div class="col">
+              <div class="input-group mb-3 city">
                 <input
                   type="text"
                   class="form-control"
@@ -37,76 +36,79 @@
                   id="search-text-input"
                   autocomplete="off"
                 />
-              </form>
-              <div class="input-group-append">
-                <button
-                  class="btn btn-outline-secondary"
-                  type="button"
-                  id="button-addon2"
-                >
-                  Otsi
-                </button>
+
+                <div class="input-group-append">
+                  <button
+                    class="btn btn-outline-secondary"
+                    type="button"
+                    id="button-addon2"
+                  >
+                    Otsi
+                  </button>
+                </div>
               </div>
             </div>
           </div>
-          <h1></h1>
-          <br />
-          <h2 id="city"></h2>
-          <br />
-          <h3>Päev ja kuu</h3>
+        </form>
+        <h1>
+          <img src="" alt="" id="icon" class="float-left" />
+        </h1>
+        <br />
+        <h2 id="city"></h2>
+        <br />
+        <h3>Päev ja kuu</h3>
 
-          <br />
-          <h6><br /></h6>
-          <br />
-          <br />
+        <br />
+        <h6><br /></h6>
+        <br />
+        <br />
 
-          <div class="card-group">
-            <div class="card">
-              <div class="card-body">
-                <h5 class="card-title" id="card-title">N 04.03</h5>
-                <p class="card-text">
-                  <br />
-                  ⛅️ <br />
-                  -2 .. 6 ℃ <br />
-                  tuul 5 m/s
-                </p>
-                <p class="card-text"></p>
-              </div>
+        <div class="card-group">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title" id="card-title">N 04.03</h5>
+              <p class="card-text">
+                <br />
+                ⛅️ <br />
+                -2 .. 6 ℃ <br />
+                tuul 5 m/s
+              </p>
+              <p class="card-text"></p>
             </div>
-            <div class="card">
-              <div class="card-body">
-                <h5 class="card-title" id="card-title">R 05.03</h5>
-                <p class="card-text">
-                  <br />
-                  ☁️ <br />-4 .. 0 <br />
-                  tuul 6 m/s
-                </p>
-                <p class="card-text"></p>
-              </div>
+          </div>
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title" id="card-title">R 05.03</h5>
+              <p class="card-text">
+                <br />
+                ☁️ <br />-4 .. 0 <br />
+                tuul 6 m/s
+              </p>
+              <p class="card-text"></p>
             </div>
-            <div class="card">
-              <div class="card-body">
-                <h5 class="card-title">L 06.03</h5>
-                <p class="card-text">
-                  <br />
-                  🌦
+          </div>
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">L 06.03</h5>
+              <p class="card-text">
+                <br />
+                🌦
 
-                  <br />-5 .. 1 <br />
-                  tuul 5 m/s
-                </p>
-                <p class="card-text"></p>
-              </div>
+                <br />-5 .. 1 <br />
+                tuul 5 m/s
+              </p>
+              <p class="card-text"></p>
             </div>
-            <div class="card">
-              <div class="card-body">
-                <h5 class="card-title" id="card-title">P 07.03</h5>
-                <p class="card-text">
-                  <br />☁️ <br />
-                  0 .. 3 <br />
-                  tuul 7 m/s
-                </p>
-                <p class="card-text"></p>
-              </div>
+          </div>
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title" id="card-title">P 07.03</h5>
+              <p class="card-text">
+                <br />☁️ <br />
+                0 .. 3 <br />
+                tuul 7 m/s
+              </p>
+              <p class="card-text"></p>
             </div>
           </div>
         </div>
