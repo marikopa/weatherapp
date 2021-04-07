@@ -62,9 +62,12 @@ function showTemperature(response) {
   h2.innerHTML = message;
   let humidityElement = document.querySelector("#humidity");
   let windElement = document.querySelector("#wind");
+  let descriptionElement = document.querySelector("#description");
 
   humidityElement.innerHTML = response.data.main.humidity;
   windElement.innerHTML = Math.round(response.data.wind.speed);
+  descriptionElement.innerHTML = response.data.weather[0].description;
+
   city.innerHTML = response.data.name;
 }
 
