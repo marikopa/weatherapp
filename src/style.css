@@ -76,5 +76,11 @@ h5 {
 }
 
 li {
-  style: none;
+  list-style: none;
+  color: #230341;
+  font-family: "Indie Flower", cursive;
+}
+
+ul {
+  padding-top: 20px;
 }

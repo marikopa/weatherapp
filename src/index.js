@@ -57,9 +57,6 @@ form.addEventListener("submit", search);
 function showTemperature(response) {
   let temperature = Math.round(response.data.main.temp);
   let city = response.data.name;
-  let message = `Hetkel on ${temperature} ℃`;
-  let h2 = document.querySelector("h2");
-  h2.innerHTML = message;
   let humidityElement = document.querySelector("#humidity");
   let windElement = document.querySelector("#wind");
   let descriptionElement = document.querySelector("#description");
@@ -67,8 +64,8 @@ function showTemperature(response) {
   humidityElement.innerHTML = response.data.main.humidity;
   windElement.innerHTML = Math.round(response.data.wind.speed);
   descriptionElement.innerHTML = response.data.weather[0].description;
-
   city.innerHTML = response.data.name;
+  temperature.innerHTML = response.data.main.temp;
 
   let iconElement = document.querySelector("#icon");
   iconElement.setAttribute(
@@ -89,8 +86,9 @@ function retrievePosition(position) {
 navigator.geolocation.getCurrentPosition(retrievePosition);
 
 function displayFahrenheitTemperature(event) {
-  event.preventDefault;
+  event.preventDefault();
   let temperatureElement = document.querySelector("#temperature");
+
   celsiusLink.classList.remove("active");
   fahrenheitLink.classList.add("active");
   let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
@@ -98,10 +96,10 @@ function displayFahrenheitTemperature(event) {
 }
 
 function displayCelsiusTemperature(event) {
-  event.preventDefault;
-  let temperatureElement = document.querySelector("#temperature");
+  event.preventDefault();
   celsiusLink.classList.add("active");
   fahrenheitLink.classList.remove("active");
+  let temperatureElement = document.querySelector("#temperature");
   temperatureElement.innerHTML = Math.round(celsiusTemperature);
 }
 
