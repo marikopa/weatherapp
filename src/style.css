@@ -71,10 +71,6 @@ h5 {
   text-decoration: none;
 }
 
-.active:hover {
-  text-decoration: none;
-}
-
 li {
   list-style: none;
   color: #230341;
@@ -83,4 +79,17 @@ li {
 
 ul {
   padding-top: 20px;
+}
+
+.weather-temperature strong {
+  color: #230341;
+  font-size: 64px;
+  line-height: 1;
+  font-weight: 400;
+}
+
+.weather-temperature .units {
+  position: relative;
+  font-size: 16px;
+  top: -34px;
 }
