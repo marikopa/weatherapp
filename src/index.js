@@ -69,6 +69,8 @@ function showTemperature(response) {
   let h1 = document.querySelector("h1");
   let temperature = Math.round(response.data.main.temp);
   h1.innerHTML = `${response.data.name}  `;
+
+  getForecast(response.data.coord);
 }
 function retrievePosition(position) {
   let apiKey = "b05a1145e720875676132ce7411f570e";
@@ -79,27 +81,46 @@ function retrievePosition(position) {
 }
 navigator.geolocation.getCurrentPosition(retrievePosition);
 
-function displayForecast() {
+function getForecast(coordinates) {
+  let apiKey = "b05a1145e720875676132ce7411f570e";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?
+  lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayForecast);
+}
+
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+
+  return day;
+}
+
+function displayForecast(response) {
+  let forecast = response.data.daily;
+
   let forecastElement = document.querySelector("#forecast");
 
-  let days = ["Kolmapäev", "N", "R"];
   let forecastHTML = `<div class="row">`;
 
-  days.forEach(function (day) {
+  forecast.forEach(function (forecastDay) {
     forecastHTML =
       forecastHTML +
       ` 
-   <div class="col-2">
+            <div class="col-2">
               <div class="weather-forecast-date">
-              ${day}
-              </div>
-              <img src="https://media.istockphoto.com/vectors/cute-flat-sun-icon-vector-id1124567572?k=6&m=1124567572&s=612x612&w=0&h=FFU7e1Tb4LI6e7f6xU-uJZoGRSLF3koVNXHzDKSDX9g=" 
+              ${formatDay(forecastDay.dt)} </div>
+              <img src="http://openweathermap.org/img/wn/${
+                forecastDay.weather[0].icon
+              }@2x.png" 
               alt="" width="36"> 
               <div class="weather-forecast-temperature">
-              <span class="weather-forecast-temperature-max">9 </span>
-              <span class="weather-forecast-temperature-min"> 6</span>
-              
-             </div>
+                 <span class="weather-forecast-temperature-max">${
+                   forecastDay.temp.max
+                 }° </span>
+                  <span class="weather-forecast-temperature-min"> ${
+                    forecastDay.temp.min
+                  }° </span>
+              </div>
             </div>
           
           `;
@@ -108,5 +129,3 @@ function displayForecast() {
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
 }
-
-displayForecast();
