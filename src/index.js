@@ -78,3 +78,35 @@ function retrievePosition(position) {
   axios.get(url).then(showTemperature);
 }
 navigator.geolocation.getCurrentPosition(retrievePosition);
+
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+
+  let days = ["Kolmapäev", "N", "R"];
+  let forecastHTML = `<div class="row">`;
+
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      ` 
+   <div class="col-2">
+              <div class="weather-forecast-date">
+              ${day}
+              </div>
+              <img src="https://media.istockphoto.com/vectors/cute-flat-sun-icon-vector-id1124567572?k=6&m=1124567572&s=612x612&w=0&h=FFU7e1Tb4LI6e7f6xU-uJZoGRSLF3koVNXHzDKSDX9g=" 
+              alt="" width="36"> 
+              <div class="weather-forecast-temperature">
+              <span class="weather-forecast-temperature-max">9 </span>
+              <span class="weather-forecast-temperature-min"> 6</span>
+              
+             </div>
+            </div>
+          
+          `;
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+
+displayForecast();
